@@ -146,24 +146,35 @@ int main(){
                     erros ++;
                   }
 
-                  cout << LS1 << LS2 << LS3 << LS4 << LS5 << LS6;
+                  cout << LS1 << LS2 << LS3 << LS4 << LS5 << LS6<<endl;
                   
-                }while(erros < 10 || (LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'));
+                }while(erros < 10 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
               }
               
             break;
             case 2:
-              cout << "Esse jogo foi desenvolvido por: \n"
-              << "Andrey Felsky, Bruno Dalbosco Rover, Erick Marlon Mafra, Rodrigo Buratto Ribas, Wallacy Alvarenga \n"
-              << "Data: outubro/2024 \n"
+              cout<<"\033c";
+              cout<<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|                                |                                                           |\n"; 
+              cout<<"|"<<" Esse jogo foi desenvolvido por "<<"|"<<" Regras do jogo                                            "<<"|\n"
+              <<"|                                |                                                           |\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|"<<"  Andrey Felsky                 "<<"| A palavra secreta será escolhida aleatoriamente entre uma "<<"|\n"
+              <<"|"<<"                                "<<"|"<<" lista de palavras pré-definidas, ela conterá 6 letras.    "<<"|\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|"<<"  Bruno Dalbosco Rover          "<<"|"<<" Você tera 10 tentativas para acertar a palavra secreta,   "<<"|\n"
+              <<"|"<<"                                "<<"|"<<" cada erro uma tentativa será descontada.                  "<<"|\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|"<<"  Rodrigo Buratto Ribas         "<<"|"<<" Somente sera aceito letras maiusculas e sem acentos.      "<<"|\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|"<<"  Wallacy Alvarenga             "<<"|"<<"                                                           "<<"|\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n"
+              <<"|"<<"  Erick Marlon Mafra            "<<"|"<<"                                                           "<<"|\n";
+              cout << "Data: outubro/2024 \n"
               << "Professor: Rafael Ballottin Martins / Algoritmos e Programação(24/2) \n"
-              << "Regras do jogo: \n"
-              << "Você tera 10 tentativas para acertar a palavra secreta, cada erro uma tentativa será descontada. \n"
-              << "A palavra secreta será escolhida aleatoriamente entre uma lista de palavras pré-definidas, ela conterá 6 letras. \n"
-              << "Somente sera aceito letras maiusculas e sem acentos. \n"
-              << "Para voltar ao menu digite qualquer tecla.";
+              << "Para voltar ao menu pressione Enter";
               cin.ignore();
-              cin.get();
+              cout<< cin.get();
               cout<<"\033c";
             break;
             case 3:
