@@ -12,8 +12,8 @@ int main(){
       
         switch(menu){
             case 1:{
-                int erros = 0;
-                char L1, L2, L3, L4, L5, L6, LD,LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
+                int tentativas = 10,acertos = 0;
+                char L1, L2, L3, L4, L5, L6, LD=' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
                 cout<<"\033c";
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
                 newRandomNumber = rand() % 10 + 1; //gera um numero aleatorio de 1 a 10
@@ -23,6 +23,7 @@ int main(){
                 randomNumber = newRandomNumber;
                 cout << randomNumber;
 
+                //seletor das palavras
                 switch(randomNumber){
                   case 1:
                     //Garota
@@ -116,39 +117,121 @@ int main(){
                   break;
                 }
 
-                cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
-                cout << "voce errou " << erros << " vezes \n";
                 do{
+                  cout<<"\033c";
+                  //subtração foi feita para desenhar o boneco conforme o erro
+                  //se tirar ela ira remover
+                  switch (10-tentativas){
+                  case 10:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |      /|\\ \n"<<" |       |\n"<<"___     / \\\n";
+                    break;
+                    case 9:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |      /|\\ \n"<<" |       |\n"<<"___     /  \n";
+                    break;
+                    case 8:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |      /|\\ \n"<<" |       |\n"<<"___     \n";
+                    break;
+                    case 7:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |      /|\\ \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 6:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |      /|  \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 5:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |       |  \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 4:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
+                      <<" |          \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 3:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |        \n"
+                      <<" |          \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 2:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( )\n"<<" |       \n"<<" |       \n"
+                      <<" |          \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 1:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |      ( \n"<<" |       \n"<<" |       \n"
+                      <<" |          \n"<<" |        \n"<<"___     \n";
+                    break;
+                    case 0:
+                      //desenhando forca
+                      cout<<" _________\n"<<" |       |\n";
+                      cout<<" |       _\n"<<" |       \n"<<" |       \n"<<" |       \n"
+                      <<" |          \n"<<" |        \n"<<"___     \n";
+                    break;
+                  }
+                  //imprimindo boneco na tela
+                  cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
+                  cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
+                  cout << "você tem " << tentativas << " tentativas restantes\n";
+                  cout << "voce acertou " << acertos << " letras \n";
                   cout << "Digite uma letra: ";
                   cin >> LD;
                   if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
                     cout << "Você acertou uma letra! \n";
-                    if(LD == L1){
+                    if(LD == L1 && LD != LS1){
                         LS1 = L1;
+                        acertos++;
                     }
-                    if(LD == L2){
+                    if(LD == L2 && LD != LS2){
                         LS2 = L2;
+                        acertos++;
                     }
-                    if(LD == L3){
+                    if(LD == L3 && LD != LS3){
                         LS3 = L3;
+                        acertos++;
                     }
-                    if(LD == L4){
+                    if(LD == L4 && LD != LS4){
                         LS4 = L4;
+                        acertos++;
                     }
-                    if(LD == L5){
+                    if(LD == L5 && LD != LS5){
                         LS5 = L5;
+                        acertos++;
                     }
-                    if(LD == L6){
+                    if(LD == L6 && LD != LS6){
                         LS6 = L6;
+                        acertos++;
                     }
+                  }else if(LD == ' '){
+                    
                   }else{
                     cout << "A palavra nao contem a letra digitada! \n";
-                    erros ++;
+                    tentativas--;
                   }
-
-                  cout << LS1 << LS2 << LS3 << LS4 << LS5 << LS6<<endl;
+                  if((LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'))
+                    cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
                   
-                }while(erros < 10 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
+                }while(tentativas > 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
               }
               
             break;
