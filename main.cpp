@@ -9,7 +9,7 @@ int main(){
     do{
         cout << "Selecione uma das poções a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
         cin >> menu;
-      
+
         switch(menu){
             case 1:{
                 int tentativas = 10,acertos = 0;
@@ -194,46 +194,53 @@ int main(){
                   cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
                   cout << "você tem " << tentativas << " tentativas restantes\n";
                   cout << "voce acertou " << acertos << " letras \n";
-                  cout << "Digite uma letra: ";
-                  cin >> LD;
-                  if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
-                    cout << "Você acertou uma letra! \n";
-                    if(LD == L1 && LD != LS1){
-                        LS1 = L1;
-                        acertos++;
-                    }
-                    if(LD == L2 && LD != LS2){
-                        LS2 = L2;
-                        acertos++;
-                    }
-                    if(LD == L3 && LD != LS3){
-                        LS3 = L3;
-                        acertos++;
-                    }
-                    if(LD == L4 && LD != LS4){
-                        LS4 = L4;
-                        acertos++;
-                    }
-                    if(LD == L5 && LD != LS5){
-                        LS5 = L5;
-                        acertos++;
-                    }
-                    if(LD == L6 && LD != LS6){
-                        LS6 = L6;
-                        acertos++;
-                    }
-                  }else if(LD == ' '){
+                  if(tentativas){
+                    cout << "Digite uma letra: ";
+                    cin >> LD;
                     
+                    if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
+                      cout << "Você acertou uma letra! \n";
+                      if(LD == L1 && LD != LS1){
+                          LS1 = L1;
+                          acertos++;
+                      }
+                      if(LD == L2 && LD != LS2){
+                          LS2 = L2;
+                          acertos++;
+                      }
+                      if(LD == L3 && LD != LS3){
+                          LS3 = L3;
+                          acertos++;
+                      }
+                      if(LD == L4 && LD != LS4){
+                          LS4 = L4;
+                          acertos++;
+                      }
+                      if(LD == L5 && LD != LS5){
+                          LS5 = L5;
+                          acertos++;
+                      }
+                      if(LD == L6 && LD != LS6){
+                          LS6 = L6;
+                          acertos++;
+                      }
+                    }else{
+                      cout << "A palavra não contem a letra digitada! \n";
+                      tentativas--;
+                    }
                   }else{
-                    cout << "A palavra nao contem a letra digitada! \n";
+                    cout << "Que pena voce perdeu! \n";
+                    cout << "A palavra era " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";    
+                    cout << "Precione qualquer tecla para voltar ao menu principal";
                     tentativas--;
+                    cin.ignore();
+                    cout<< cin.get();
+                    cout<<"\033c";
                   }
-                  if((LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'))
-                    cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
-                  
-                }while(tentativas > 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
+
+                }while(tentativas >= 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
               }
-              
+
             break;
             case 2:
               cout<<"\033c";
@@ -267,8 +274,7 @@ int main(){
               cout<< "Opção inválida";
         }
     }while(menu != 3);
-  
-    cout << "finalizado";
+
     return 0;
 }
 
@@ -293,4 +299,3 @@ int main(){
 // Wallacy Alvarenga
 // 6916694
 // wallacyalvarenga@univali.br
-  
