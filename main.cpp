@@ -1,7 +1,7 @@
 #include<iostream>
 #include<locale.h>
 using namespace std;
-
+#define clear "\033c"
 int main(){
     setlocale(LC_ALL,"Portuguese");
     int menu, newRandomNumber, randomNumber;
@@ -14,7 +14,7 @@ int main(){
             case 1:{
                 int tentativas = 10,acertos = 0;
                 char L1, L2, L3, L4, L5, L6, LD=' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
-                cout<<"\033c";
+                cout<<clear;//limpa a tela
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
                 newRandomNumber = rand() % 10 + 1; //gera um numero aleatorio de 1 a 10
                 while(newRandomNumber == randomNumber){
@@ -118,7 +118,7 @@ int main(){
                 }
 
                 do{
-                  cout<<"\033c";
+                  cout<<clear;
                   //subtração foi feita para desenhar o boneco conforme o erro
                   //se tirar ela ira remover
                   switch (10-tentativas){
@@ -235,15 +235,15 @@ int main(){
                     tentativas--;
                     cin.ignore();
                     cout<< cin.get();
-                    cout<<"\033c";
+                    cout<<clear;
                   }
 
                 }while(tentativas >= 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
               }
-
+              cout<<clear;
             break;
             case 2:
-              cout<<"\033c";
+              cout<<clear;
               cout<<"+--------------------------------+-----------------------------------------------------------+\n"
               <<"|                                |                                                           |\n"; 
               cout<<"|"<<" Esse jogo foi desenvolvido por "<<"|"<<" Regras do jogo                                            "<<"|\n"
@@ -259,13 +259,14 @@ int main(){
               <<"+--------------------------------+-----------------------------------------------------------+\n"
               <<"|"<<"  Wallacy Alvarenga             "<<"|"<<"                                                           "<<"|\n"
               <<"+--------------------------------+-----------------------------------------------------------+\n"
-              <<"|"<<"  Erick Marlon Mafra            "<<"|"<<"                                                           "<<"|\n";
+              <<"|"<<"  Erick Marlon Mafra            "<<"|"<<"                                                           "<<"|\n"
+              <<"+--------------------------------+-----------------------------------------------------------+\n\n";
               cout << "Data: outubro/2024 \n"
               << "Professor: Rafael Ballottin Martins / Algoritmos e Programação(24/2) \n"
               << "Para voltar ao menu pressione Enter";
               cin.ignore();
               cout<< cin.get();
-              cout<<"\033c";
+              cout<<clear;
             break;
             case 3:
               cout << "Obrigado por jogar, até a próxima!";
