@@ -13,6 +13,7 @@ int main(){
         switch(menu){
             case 1:{
                 int tentativas = 10,acertos = 0;
+                bool palavraExibida = false;
                 char L1, L2, L3, L4, L5, L6, LD=' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
                 cout<<clear;//limpa a tela
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
@@ -194,7 +195,14 @@ int main(){
                   cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
                   cout << "você tem " << tentativas << " tentativas restantes\n";
                   cout << "voce acertou " << acertos << " letras \n";
-                  if(tentativas){
+                  if(LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'){
+                    palavraExibida = false;
+                    cout << "Parabéns você ganhou! \n";
+                    cout << "Precione qualquer tecla para voltar ao menu principal";
+                    cin.ignore();
+                    cout<< cin.get();
+                    cout<<"\033c";
+                  }else if(tentativas){
                     cout << "Digite uma letra: ";
                     cin >> LD;
                     
@@ -224,6 +232,9 @@ int main(){
                           LS6 = L6;
                           acertos++;
                       }
+                      if(LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'){
+                        palavraExibida = true;
+                      }
                     }else{
                       cout << "A palavra não contem a letra digitada! \n";
                       tentativas--;
@@ -238,7 +249,7 @@ int main(){
                     cout<<clear;
                   }
 
-                }while(tentativas >= 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_'));
+                }while((tentativas >= 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_')) || palavraExibida);
               }
               cout<<clear;
             break;
