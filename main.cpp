@@ -13,6 +13,8 @@ int main(){
         switch(menu){
             case 1:{
                 int tentativas = 10,acertos = 0;
+                string letrasDigitadas = "";
+              
                 char L1, L2, L3, L4, L5, L6, LD = ' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
                 cout<<"\033c";//limpa a tela
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
@@ -124,6 +126,12 @@ int main(){
 
                   //verifica se alguma coisa foi digitada
                   if(LD != ' '){
+                    //verifica se alguma letra ja foi digitada
+                    if(letrasDigitadas != ""){
+                      letrasDigitadas += ",";
+                    }
+                    //coloca a letra digitada em uma string para exibição
+                    letrasDigitadas += LD;
                     //Verifica se alguma letra foi acertada
                     if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
                       //verifica se a letra acertada ja foi acertada anteriormente
@@ -229,6 +237,7 @@ int main(){
 
                   //exibe a palavra conforme foi digitada
                   cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
+                  cout << "As letras digitadas ate agora foram: " << letrasDigitadas << endl;
                   cout << "você tem " << tentativas << " tentativas restantes\n";
                   cout << "voce acertou " << acertos << " letras \n";
 
