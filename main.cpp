@@ -1,30 +1,30 @@
 #include<iostream>
 #include<locale.h>
 using namespace std;
-#define clear "\033c"
 int main(){
     setlocale(LC_ALL,"Portuguese");
     int menu, newRandomNumber, randomNumber;
 
     do{
+        // Solicita informar uma opção do menu
         cout << "Selecione uma das poções a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
         cin >> menu;
 
         switch(menu){
             case 1:{
                 int tentativas = 10,acertos = 0;
-                bool palavraExibida = false;
-                char L1, L2, L3, L4, L5, L6, LD=' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
-                cout<<clear;//limpa a tela
+                char L1, L2, L3, L4, L5, L6, LD = ' ',LS1 = '_', LS2 = '_', LS3 = '_', LS4 = '_', LS5 = '_', LS6 = '_';
+                cout<<"\033c";//limpa a tela
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
                 newRandomNumber = rand() % 10 + 1; //gera um numero aleatorio de 1 a 10
+
+                //verifica se o numero gerado foi o mesmo do anterior 
                 while(newRandomNumber == randomNumber){
                     newRandomNumber = rand() % 10 + 1;
                 }
                 randomNumber = newRandomNumber;
-                cout << randomNumber;
 
-                //seletor das palavras
+                //Seleciona uma das palavras
                 switch(randomNumber){
                   case 1:
                     //Garota
@@ -118,12 +118,48 @@ int main(){
                   break;
                 }
 
-                do{
-                  cout<<clear;
+                //inicia o loop do jogo 
+                while(tentativas > 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_')){
+                  cout<<"\033c";
+
+                  //verifica se alguma coisa foi digitada
+                  if(LD != ' '){
+                    //Verifica se alguma letra foi acertada
+                    if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
+                      //verifica se a letra acertada ja foi acertada anteriormente
+                      if(LD == L1 && LD != LS1){
+                          LS1 = L1;
+                          acertos++;
+                      }
+                      if(LD == L2 && LD != LS2){
+                          LS2 = L2;
+                          acertos++;
+                      }
+                      if(LD == L3 && LD != LS3){
+                          LS3 = L3;
+                          acertos++;
+                      }
+                      if(LD == L4 && LD != LS4){
+                          LS4 = L4;
+                          acertos++;
+                      }
+                      if(LD == L5 && LD != LS5){
+                          LS5 = L5;
+                          acertos++;
+                      }
+                      if(LD == L6 && LD != LS6){
+                          LS6 = L6;
+                          acertos++;
+                      }
+                    }else{
+                      //se nao foi acertada remove uma tentativa
+                      tentativas--;
+                    }
+                  }
+
                   //subtração foi feita para desenhar o boneco conforme o erro
-                  //se tirar ela ira remover
                   switch (10-tentativas){
-                  case 10:
+                    case 10:
                       //desenhando forca
                       cout<<" _________\n"<<" |       |\n";
                       cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
@@ -190,71 +226,40 @@ int main(){
                       <<" |          \n"<<" |        \n"<<"___     \n";
                     break;
                   }
-                  //imprimindo boneco na tela
+
+                  //exibe a palavra conforme foi digitada
                   cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
-                  cout << "A palavra é " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";
                   cout << "você tem " << tentativas << " tentativas restantes\n";
                   cout << "voce acertou " << acertos << " letras \n";
+
+                  //verifica se acertou todas as letras
                   if(LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'){
-                    palavraExibida = false;
                     cout << "Parabéns você ganhou! \n";
                     cout << "Precione qualquer tecla para voltar ao menu principal";
                     cin.ignore();
                     cout<< cin.get();
                     cout<<"\033c";
                   }else if(tentativas){
+                    //caso nao tenha acertado tudo e ainda tenha tentativas, solicita mais uma letra ser digitada
                     cout << "Digite uma letra: ";
                     cin >> LD;
-                    
-                    if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
-                      cout << "Você acertou uma letra! \n";
-                      if(LD == L1 && LD != LS1){
-                          LS1 = L1;
-                          acertos++;
-                      }
-                      if(LD == L2 && LD != LS2){
-                          LS2 = L2;
-                          acertos++;
-                      }
-                      if(LD == L3 && LD != LS3){
-                          LS3 = L3;
-                          acertos++;
-                      }
-                      if(LD == L4 && LD != LS4){
-                          LS4 = L4;
-                          acertos++;
-                      }
-                      if(LD == L5 && LD != LS5){
-                          LS5 = L5;
-                          acertos++;
-                      }
-                      if(LD == L6 && LD != LS6){
-                          LS6 = L6;
-                          acertos++;
-                      }
-                      if(LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'){
-                        palavraExibida = true;
-                      }
-                    }else{
-                      cout << "A palavra não contem a letra digitada! \n";
-                      tentativas--;
-                    }
                   }else{
+                    //caso nao tenha acertado tudo e nao tem tentativas exibe e mensagem que perdeu o jogo
                     cout << "Que pena voce perdeu! \n";
                     cout << "A palavra era " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";    
                     cout << "Precione qualquer tecla para voltar ao menu principal";
-                    tentativas--;
                     cin.ignore();
                     cout<< cin.get();
-                    cout<<clear;
+                    cout<<"\033c";
                   }
 
-                }while((tentativas >= 0 && (LS1 == '_' || LS2 == '_' || LS3 == '_' || LS4 == '_' || LS5 == '_' || LS6 == '_')) || palavraExibida);
+                };
               }
-              cout<<clear;
+              cout<<"\033c";
             break;
             case 2:
-              cout<<clear;
+              //exibe as informações das pessoas que fizeram o codigo
+              cout<<"\033c";
               cout<<"+--------------------------------+-----------------------------------------------------------+\n"
               <<"|                                |                                                           |\n"; 
               cout<<"|"<<" Esse jogo foi desenvolvido por "<<"|"<<" Regras do jogo                                            "<<"|\n"
@@ -277,13 +282,17 @@ int main(){
               << "Para voltar ao menu pressione Enter";
               cin.ignore();
               cout<< cin.get();
-              cout<<clear;
+              cout<<"\033c";
             break;
             case 3:
+              cout<<"\033c";
+              //exibe a mensagem quando sai do codigo
               cout << "Obrigado por jogar, até a próxima!";
             break;
             default:
-              cout<< "Opção inválida";
+              cout<<"\033c";
+              //avisa que foi digitado uma informação nao esperada
+              cout<< "Opção inválida \n";
         }
     }while(menu != 3);
 
