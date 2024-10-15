@@ -7,7 +7,7 @@ int main(){
 
     do{
         // Solicita informar uma opção do menu
-        cout << "Selecione uma das poções a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
+        cout << "Selecione uma das posições a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
         cin >> menu;
 
         switch(menu){
@@ -237,7 +237,9 @@ int main(){
 
                   //exibe a palavra conforme foi digitada
                   cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
-                  cout << "As letras digitadas ate agora foram: " << letrasDigitadas << endl;
+                  if(letrasDigitadas != ""){
+                    cout << "As letras digitadas ate agora foram: " << letrasDigitadas << endl;
+                  }
                   cout << "você tem " << tentativas << " tentativas restantes\n";
                   cout << "voce acertou " << acertos << " letras \n";
 
