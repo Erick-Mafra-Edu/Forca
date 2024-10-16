@@ -8,6 +8,7 @@ int main(){
     do{
         // Solicita informar uma opção do menu
         cout << "Selecione uma das posições a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
+
         cin >> menu;
 
         switch(menu){
@@ -20,7 +21,7 @@ int main(){
                 srand(time(NULL)); //semente randomica gerada a partir da hora do sistema
                 newRandomNumber = rand() % 10 + 1; //gera um numero aleatorio de 1 a 10
 
-                //verifica se o numero gerado foi o mesmo do anterior 
+                //verifica se o número gerado foi o mesmo do anterior 
                 while(newRandomNumber == randomNumber){
                     newRandomNumber = rand() % 10 + 1;
                 }
@@ -28,7 +29,7 @@ int main(){
 
                 //Seleciona uma das palavras
                 switch(randomNumber){
-                  case 1:
+                  case 1: 
                     //Garota
                     L1 = 'G';
                     L2 = 'A';
@@ -126,7 +127,7 @@ int main(){
 
                   //verifica se alguma coisa foi digitada
                   if(LD != ' '){
-                    //verifica se alguma letra ja foi digitada
+                    //verifica se alguma letra já foi digitada
                     if(letrasDigitadas != ""){
                       letrasDigitadas += ",";
                     }
@@ -134,7 +135,7 @@ int main(){
                     letrasDigitadas += LD;
                     //Verifica se alguma letra foi acertada
                     if(LD == L1 || LD == L2 || LD == L3 || LD == L4 || LD == L5 || LD == L6){
-                      //verifica se a letra acertada ja foi acertada anteriormente
+                      //verifica se a letra acertada já foi acertada anteriormente
                       if(LD == L1 && LD != LS1){
                           LS1 = L1;
                           acertos++;
@@ -237,12 +238,14 @@ int main(){
 
                   //exibe a palavra conforme foi digitada
                   cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
+
                   if(letrasDigitadas != ""){
                     cout << "As letras digitadas ate agora foram: " << letrasDigitadas << endl;
                   }
-                  cout << "você tem " << tentativas << " tentativas restantes\n";
-                  cout << "voce acertou " << acertos << " letras \n";
 
+                  cout << "você tem " << tentativas << " tentativas restantes\n";
+                  cout << "você acertou " << acertos << " letras \n";
+                 
                   //verifica se acertou todas as letras
                   if(LS1 != '_' && LS2 != '_' && LS3 != '_' && LS4 != '_' && LS5 != '_' && LS6 != '_'){
                     cout << "Parabéns você ganhou! \n";
@@ -260,11 +263,11 @@ int main(){
                     cout << "A palavra era " << L1 << L2 << L3 << L4 << L5 << L6 << " \n";    
                     cout << "Precione qualquer tecla para voltar ao menu principal";
                     cin.ignore();
-                    cout<< cin.get();
+                    cout<<cin.get();
                     cout<<"\033c";
                   }
 
-                };
+                }; 
               }
               cout<<"\033c";
             break;
@@ -292,7 +295,7 @@ int main(){
               << "Professor: Rafael Ballottin Martins / Algoritmos e Programação(24/2) \n"
               << "Para voltar ao menu pressione Enter";
               cin.ignore();
-              cout<< cin.get();
+              cin.get();
               cout<<"\033c";
             break;
             case 3:
