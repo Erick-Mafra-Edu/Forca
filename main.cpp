@@ -7,8 +7,7 @@ int main(){
 
     do{
         // Solicita informar uma opção do menu
-        cout << "Selecione uma das posições a seguir: \n 1 • Jogar \n 2 • Sobre \n 3 • Fim \n";
-
+        cout << "Selecione uma das opções a seguir: \n 1 • Jogar ▷\n 2 • Sobre ⁉️\n 3 • Fim 𝕏\n";
         cin >> menu;
 
         switch(menu){
@@ -168,74 +167,74 @@ int main(){
 
                   //subtração foi feita para desenhar o boneco conforme o erro
                   switch (10-tentativas){
-                    case 10:
+                  case 10:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |      /|\\ \n"<<" |       |\n"<<"___     / \\\n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |         /|\\ \n"<<" |          |\n"<<"___        / \\\n";
                     break;
                     case 9:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |      /|\\ \n"<<" |       |\n"<<"___     /  \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |         /|\\ \n"<<" |          |\n"<<"___        /  \n";
                     break;
                     case 8:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |      /|\\ \n"<<" |       |\n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |         /|\\ \n"<<" |          |\n"<<"___     \n";
                     break;
                     case 7:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |      /|\\ \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |         /|\\ \n"<<" |        \n"<<"___     \n";
                     break;
                     case 6:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |      /|  \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |         /|  \n"<<" |        \n"<<"___     \n";
                     break;
                     case 5:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |       |  \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |          |  \n"<<" |        \n"<<"___     \n";
                     break;
                     case 4:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |       |\n"
-                      <<" |          \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |          |\n"
+                      <<" |             \n"<<" |        \n"<<"___     \n";
                     break;
                     case 3:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       V\n"<<" |        \n"
-                      <<" |          \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛)\n"<<" |           \n"
+                      <<" |             \n"<<" |        \n"<<"___     \n";
                     break;
                     case 2:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( )\n"<<" |       \n"<<" |       \n"
-                      <<" |          \n"<<" |        \n"<<"___     \n";
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( ͡❛ ͜ʖ ͡❛\n"<<" |          \n"<<" |       \n"
+                      <<" |             \n"<<" |        \n"<<"___     \n";
                     break;
                     case 1:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |      ( \n"<<" |       \n"<<" |       \n"
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |      ( \n"<<" |       \n"<<" |       \n"
                       <<" |          \n"<<" |        \n"<<"___     \n";
                     break;
                     case 0:
                       //desenhando forca
-                      cout<<" _________\n"<<" |       |\n";
-                      cout<<" |       _\n"<<" |       \n"<<" |       \n"<<" |       \n"
+                      
+                      cout<<" _________\n"<<" |       |\n"
+                      <<" |       ______\n"<<" |       \n"<<" |       \n"<<" |       \n"
                       <<" |          \n"<<" |        \n"<<"___     \n";
                     break;
                   }
-
                   //exibe a palavra conforme foi digitada
                   cout <<endl<< LS1 <<" "<< LS2 <<" "<< LS3 <<" "<< LS4 <<" "<< LS5 <<" "<< LS6<<endl<<endl;
 
